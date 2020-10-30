@@ -3,14 +3,12 @@
 開発環境を始める
 
 ```
-$ cd docker
 $ docker-compose up
 ```
 
 開発環境を止める
 
 ```
-$ cd docker
 $ docker-compose down
 ```
 
