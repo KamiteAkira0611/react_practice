@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import CalculatorContainer from './containers/CalculatorContainer.js'
 import reportWebVitals from './reportWebVitals';
+import reducer from './reducers';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <CalculatorContainer />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
