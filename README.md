@@ -12,6 +12,20 @@ $ docker-compose up
 $ docker-compose down
 ```
 
+# パッケージの入れ方
+
+```
+$ docker ps
+```
+
+で起動中のコンテナIDを確認
+
+```
+$ docker exec -it ********* sh
+$ cd workspace
+$ yarn add ****
+```
+
 # Github
 
 https://github.com/settings/tokens
