@@ -26,6 +26,13 @@ $ cd workspace
 $ yarn add ****
 ```
 
+全消し
+
+```
+$ docker rm -f `docker ps -a -q`
+$ docker rmi `docker images -q` -f
+```
+
 # Github
 
 https://github.com/settings/tokens
