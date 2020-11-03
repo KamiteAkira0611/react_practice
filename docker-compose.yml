@@ -1,12 +1,10 @@
 version: '3'
 services:
-  react:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  front:
+    build: ./front
+    command: yarn start
     volumes:
-     - ./:/usr/src/app
-    command: sh -c "cd front && yarn start"
+      - ./front:/app
     ports:
-     - "3000:3000"
+     - "8000:3000"
     tty: true
