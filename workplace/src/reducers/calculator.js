@@ -7,7 +7,8 @@ const initialAppState = {
 };
 
 const calculator = (state = initialAppState, action) => {
-  switch(action.type) {
+  switch (action.type) {
+
     case actionTypes.INPUT_NUMBER:
       return {
         ...state,
@@ -22,6 +23,14 @@ const calculator = (state = initialAppState, action) => {
         resultValue: state.resultValue + state.inputValue,
         showingResult: true
       };
+
+    case actionTypes.Clear:
+      return {
+        ...state,
+        inputValue: 0,
+        resultValue: 0,
+        showingResult: true
+      }
     default:
       return state
   }

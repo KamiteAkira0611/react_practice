@@ -8,3 +8,7 @@ export const onNumClick = (number) => ({
 export const onPlusClick = () => ({
   type: actionTypes.PLUS
 })
+
+export const onClearClick = () => ({
+  type: actionTypes.Clear
+})

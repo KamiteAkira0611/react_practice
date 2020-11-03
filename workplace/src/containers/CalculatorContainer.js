@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
-import NumBtn from "../components/NumBtn";
-import PulsBtn from "../components/PulsBtn";
-import Result from "../components/Result";
+import ClearBtn from "../components/calculator/ClearBtn";
+import NumBtn from "../components/calculator/NumBtn";
+import PulsBtn from "../components/calculator/PulsBtn";
+import Result from "../components/calculator/Result";
 
 class CalculatorContainer extends Component {
   render() {
     const { calculator, actions } = this.props;
     return (
       <div>
+        <div>
+          <ClearBtn onClick={()=> actions.onClearClick()}/>
+        </div>
         <div>
           <NumBtn n={1} onClick={() => actions.onNumClick(1)}/>
           <NumBtn n={2} onClick={() => actions.onNumClick(2)}/>
