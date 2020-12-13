@@ -2,16 +2,18 @@ version: '3'
 services:
   db:
     image: postgres:10.4
+    container_name: react-rails-db
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
   api:
     build: ./api
+    container_name: react-rails-api
     command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     image: rails:dev
     volumes:
-      - ./api:/app
-      - ./api/vendor/bundle:/app/vendor/bundle
+      - ../api:/app
+      - ../api/vendor/bundle:/app/vendor/bundle
     environment:
       TZ: Asia/Tokyo
       RAILS_ENV: development
@@ -22,9 +24,10 @@ services:
 
   front:
     build: ./front
+    container_name: react-rails-front
     command: yarn start
     volumes:
-      - ./front:/app
+      - ../front:/app
     ports:
      - "8000:3000"
 
