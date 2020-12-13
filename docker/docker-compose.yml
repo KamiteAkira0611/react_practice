@@ -7,7 +7,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   api:
-    build: ./api
+    build:
+      context: ../
+      dockerfile: ./docker/api/Dockerfile
     container_name: react-rails-api
     command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     image: rails:dev
@@ -23,7 +25,9 @@ services:
       - db
 
   front:
-    build: ./front
+    build:
+      context: ../
+      dockerfile: ./docker/front/Dockerfile
     container_name: react-rails-front
     command: yarn start
     volumes:

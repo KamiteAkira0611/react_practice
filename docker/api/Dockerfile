@@ -1,9 +1,10 @@
-FROM ruby:2.5.1
+FROM ruby:2.7.1
 
 WORKDIR /app
-COPY Gemfile /app
-COPY Gemfile.lock /app
-COPY . /app
+COPY api/Gemfile /app/Gemfile
+COPY api/Gemfile.lock /app
+COPY api/ /app
 
 RUN apt-get update -qq && apt-get install -y build-essential nodejs libpq-dev postgresql-client
-RUN gem update bundler && bundle install
+RUN gem install bundler
+RUN bundle install
